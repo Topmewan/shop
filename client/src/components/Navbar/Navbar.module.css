@@ -1,0 +1,40 @@
+.nav__bar{
+    height: 70px;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4rem;
+}
+
+.nav__bar h2{
+    font-size: 40px;
+    color: #ffffff;
+}
+
+.nav__cart{
+    display: flex;
+    align-items: center;
+
+}
+
+.cart__img{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.cart__quantity{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 25px;
+    width: 25px;
+    background: #fff;
+    border-radius: 50%;
+    font-size: 15px;
+    font-weight: 700;
+    color: black;
+    margin: 0 5px;
+}
