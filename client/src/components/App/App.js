@@ -1,7 +1,4 @@
 import Navbar from "../Navbar/Navbar";
-import Cart from "../../pages/CartPage/Cart";
-import Home from "../../pages/HomePage/Home";
-import NotFound from "../../pages/NotFound/NotFound";
 import {BrowserRouter,Route,Switch,Redirect} from "react-router-dom";
 
 import {routes} from "../../routes/routes";
@@ -25,11 +22,6 @@ function App() {
                                   component={component}/>
 
                           )}
-                      {/*<Route exact path='/' component={Home}/>*/}
-                      {/*<Route exact path='/cart' component={Cart}/>*/}
-                      {/*<Route exact path='*' component={NotFound}/>*/}
-
-
                   </Switch>
               </BrowserRouter>
 
