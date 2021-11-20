@@ -1,8 +1,11 @@
 import Navbar from "../Navbar/Navbar";
 import {BrowserRouter,Route,Switch,Redirect} from "react-router-dom";
-
 import {routes} from "../../routes/routes";
+import { ToastContainer } from "react-toastify";
+
+
 import styles from './App.module.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function App() {
@@ -12,6 +15,7 @@ function App() {
 
           <div className='container'>
               <BrowserRouter>
+                  <ToastContainer/>
                   <Navbar/>
                   <Switch>
                       {routes.map(({id,exact,path,component}) =>
