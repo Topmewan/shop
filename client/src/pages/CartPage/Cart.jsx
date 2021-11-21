@@ -1,14 +1,34 @@
 import styles from './Cart.module.css';
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 import arrow from './img/arrow.svg';
 import CartEmpty from "../../components/CartPage/CartEmpty/CartEmpty";
+import {addToCart, clearCart, decreaseCart, removeItemFromCart} from "../../toolkit/reducers/cartSlice";
 
 
 
 const Cart = () => {
 
+    const dispatch = useDispatch();
+
     const cart = useSelector(state => state.cartReducer);
+
+    const handleRemoveItemFromCart = (cartItem) => {
+        dispatch(removeItemFromCart(cartItem));
+    };
+
+    const handleDecreaseItem = (cartItem) => {
+        dispatch(decreaseCart(cartItem));
+    };
+
+    const handleIncreaseItem = (cartItem) => {
+        dispatch(addToCart(cartItem));
+    };
+
+    const handleClearCart = () => {
+        dispatch(clearCart());
+    };
+
 
     return (
         <div className={styles.cart__container}>
@@ -33,15 +53,15 @@ const Cart = () => {
                                         <div>
                                             <h3>{cartItem.name}</h3>
                                             <p>{cartItem.desc}</p>
-                                            <button>Удалить</button>
+                                            <button onClick={() => handleRemoveItemFromCart(cartItem)}>Удалить</button>
                                         </div>
                                     </div>
 
                                     <div className={styles.price}>{cartItem.price} R</div>
                                     <div className={styles.cart__product__quantity}>
-                                        <button>-</button>
+                                        <button onClick={() => handleDecreaseItem(cartItem)}>-</button>
                                         <div className={styles.count}>{cartItem.cartQuantity}</div>
-                                        <button>+</button>
+                                        <button onClick={() => handleIncreaseItem(cartItem)}>+</button>
                                     </div>
 
                                     <div className={styles.cart__product__total__price}>
@@ -53,7 +73,7 @@ const Cart = () => {
                         </div>
 
                         <div className={styles.cart__summary}>
-                            <button className={styles.clear__btn}>Очистить Корзину</button>
+                            <button className={styles.clear__btn} onClick={() => handleClearCart()}>Очистить Корзину</button>
                             <div className={styles.cart__checkout}>
                                 <div className={styles.subtotal}>
                                     <span>Итого</span>
@@ -69,11 +89,9 @@ const Cart = () => {
                                 </div>
                             </div>
                         </div>
-
                     </>
                 )
             }
-
         </div>
     );
 };

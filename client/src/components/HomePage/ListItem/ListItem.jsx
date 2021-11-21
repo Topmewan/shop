@@ -1,7 +1,6 @@
 import styles from './ListItem.module.css';
 import {useDispatch} from "react-redux";
 import {addToCart} from "../../../toolkit/reducers/cartSlice";
-import {useHistory} from "react-router";
 
 
 
@@ -10,10 +9,8 @@ const ListItem = ({product}) => {
     const dispatch = useDispatch();
 
     const handleAddToCart = (product) => {
-        dispatch(addToCart(product));
-
-    }
-
+        dispatch(addToCart(product))
+    };
 
     return (
         <>
