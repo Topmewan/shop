@@ -12,11 +12,11 @@ const {data,isLoading,error} = useGetAllProductsQuery();
                 ? <h1>Loading...</h1>
                 : error ? <h1>{error}</h1>
                     : (
-                            <div className={styles.products}>
-                                {data?.map((product) => (
-                                    <ListItem product={product} key={product.id}/>
-                                     ))}
-                            </div>
+                        <div className={styles.products}>
+                            {data?.map((product) => (
+                                <ListItem product={product} key={product.id}/>
+                            ))}
+                        </div>
                     )}
 
         </div>

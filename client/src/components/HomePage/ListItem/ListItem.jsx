@@ -1,6 +1,7 @@
 import styles from './ListItem.module.css';
 import {useDispatch} from "react-redux";
 import {addToCart} from "../../../toolkit/reducers/cartSlice";
+import {useHistory} from "react-router";
 
 
 
@@ -20,8 +21,8 @@ const ListItem = ({product}) => {
             <h3>{product.name}</h3>
             <img src={product.image} alt={product.name}/>
             <div className={styles.details}>
-                <span>{product.desc}</span>
-                <span className={styles.price}>{product.price} R</span>
+                <p>{product.desc}</p>
+                <p className={styles.price}>{product.price} R</p>
             </div>
             <button onClick={() => handleAddToCart(product)}>Add to Cart</button>
         </div>
