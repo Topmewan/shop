@@ -38,3 +38,12 @@
     color: black;
     margin: 0 5px;
 }
+
+@media (max-width: 665px){
+    .nav__bar{
+        padding: 0 1rem;
+    }
+    .nav__bar h2{
+        font-size: 30px;
+    }
+}

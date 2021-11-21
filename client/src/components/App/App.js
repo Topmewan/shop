@@ -6,10 +6,12 @@ import { ToastContainer } from "react-toastify";
 
 import styles from './App.module.css';
 import 'react-toastify/dist/ReactToastify.css';
+import {useEffect} from "react";
+import {getTotal} from "../../toolkit/reducers/cartSlice";
+import {useDispatch, useSelector} from "react-redux";
 
 
 function App() {
-
 
   return (
 

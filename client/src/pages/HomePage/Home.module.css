@@ -2,6 +2,10 @@
     padding:1rem 4rem;
 }
 
+.home__container h1{
+    text-align: center;
+}
+
 .products{
     display: flex;
     justify-content: space-between;

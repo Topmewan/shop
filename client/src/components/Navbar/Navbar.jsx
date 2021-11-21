@@ -1,10 +1,23 @@
-import React from 'react';
-import cart from './img/cart.svg';
+
+import {useEffect} from "react";
+import cartIcon from './img/cart.svg';
 import {Link} from "react-router-dom";
+import {getTotal} from "../../toolkit/reducers/cartSlice";
 
 import styles from './Navbar.module.css';
+import {useDispatch, useSelector} from "react-redux";
 
 const Navbar = () => {
+
+    const dispatch = useDispatch();
+
+    const cart = useSelector(state => state.cartReducer);
+
+    useEffect(() => {
+        dispatch(getTotal(cart))
+
+    },[cart,dispatch])
+
     return (
         <nav className={styles.nav__bar}>
 
@@ -14,16 +27,12 @@ const Navbar = () => {
 
             <Link to='/cart'>
                 <div className={styles.nav__cart}>
-
-                    <img className={styles.cart__img} src={cart} alt="cart"/>
+                    <img className={styles.cart__img} src={cartIcon} alt="cart"/>
                     <span className={styles.cart__quantity}>
-                        <span>0</span>
+                        <span>{cart.cartTotalQuantity}</span>
                     </span>
-
                 </div>
-
             </Link>
-
         </nav>
     );
 };

@@ -3,7 +3,8 @@ import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 import arrow from './img/arrow.svg';
 import CartEmpty from "../../components/CartPage/CartEmpty/CartEmpty";
-import {addToCart, clearCart, decreaseCart, removeItemFromCart} from "../../toolkit/reducers/cartSlice";
+import {addToCart, clearCart, decreaseCart, getTotal, removeItemFromCart} from "../../toolkit/reducers/cartSlice";
+import {useEffect} from "react";
 
 
 
@@ -12,6 +13,7 @@ const Cart = () => {
     const dispatch = useDispatch();
 
     const cart = useSelector(state => state.cartReducer);
+
 
     const handleRemoveItemFromCart = (cartItem) => {
         dispatch(removeItemFromCart(cartItem));
@@ -28,6 +30,7 @@ const Cart = () => {
     const handleClearCart = () => {
         dispatch(clearCart());
     };
+
 
 
     return (
@@ -79,7 +82,6 @@ const Cart = () => {
                                     <span>Итого</span>
                                     <span className={styles.amount}>{cart.cartTotalAmount} R</span>
                                 </div>
-                                <p>fsfsfs</p>
                                 <button>Заказ</button>
                                 <div className={styles.continue__shopping}>
                                     <Link to='/'>
