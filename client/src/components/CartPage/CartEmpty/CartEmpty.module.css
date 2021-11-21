@@ -1,0 +1,22 @@
+.cart__empty {
+    font-size: 20px;
+    margin-top: 2rem;
+    color: rgb(84, 84, 84);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.start__shopping {
+    margin-top: 1rem;
+}
+
+.start__shopping a {
+    color: gray;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.start__shopping a span {
+    margin-left: 0.5rem;
+}
